@@ -1,0 +1,35 @@
+import java.util.*;
+
+class a2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            String s = sc.nextLine();
+
+            if (s == null || s.isEmpty()) {
+                throw new Exception();
+            }
+
+            int n = Integer.parseInt(s);
+
+            if (n < 0) {
+                throw new Exception();
+            }
+
+            long f = 1;
+
+            for (int i = 1; i <= n; i++) {
+                f = Math.multiplyExact(f, i);
+            }
+
+            System.out.println(f);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number");
+        } catch (ArithmeticException e) {
+            System.out.println("Overflow");
+        } catch (Exception e) {
+            System.out.println("Invalid input");
+        }
+    }
+}
