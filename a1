@@ -1,0 +1,32 @@
+import java.util.*;
+
+class a1 {
+    public static void main(String[] args) {
+        try {
+            if (args == null || args.length == 0) {
+                throw new Exception("Empty");
+            }
+
+            int sum = 0, c = 0;
+
+            for (String s : args) {
+                try {
+                    int x = Integer.parseInt(s);
+                    sum += x;
+                    c++;
+                } catch (NumberFormatException e) {
+                    continue;
+                }
+            }
+
+            if (c == 0) {
+                System.out.println("No valid integers");
+            } else {
+                System.out.println(sum / c);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Invalid list");
+        }
+    }
+}
