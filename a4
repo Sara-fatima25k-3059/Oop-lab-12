@@ -1,0 +1,27 @@
+import java.util.*;
+
+class a4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            String s = sc.nextLine();
+
+            if (s == null || s.isEmpty()) {
+                throw new Exception();
+            }
+
+            String[] w = s.trim().split("\\s+");
+
+            if (w.length < 2) {
+                throw new Exception();
+            }
+
+            String res = w[w.length - 1] + " " + w[0];
+
+            System.out.println(res);
+
+        } catch (Exception e) {
+            System.out.println("Invalid sentence");
+        }
+    }
+}
