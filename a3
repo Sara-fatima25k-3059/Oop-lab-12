@@ -1,0 +1,39 @@
+import java.util.*;
+
+class a3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            String s1 = sc.nextLine();
+            String s2 = sc.nextLine();
+
+            if (s1 == null || s1.isEmpty() || s2 == null || s2.isEmpty()) {
+                throw new Exception();
+            }
+
+            double a = Double.parseDouble(s1);
+            double b = Double.parseDouble(s2);
+
+            String op = sc.next();
+
+            double r = 0;
+
+            if (op.equals("+")) r = a + b;
+            else if (op.equals("-")) r = a - b;
+            else if (op.equals("*")) r = a * b;
+            else if (op.equals("/")) {
+                if (b == 0) throw new ArithmeticException();
+                r = a / b;
+            }
+
+            System.out.println(r);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number");
+        } catch (ArithmeticException e) {
+            System.out.println("Divide by zero");
+        } catch (Exception e) {
+            System.out.println("Invalid input");
+        }
+    }
+}
